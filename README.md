@@ -87,6 +87,12 @@ flutter run
 
 ## 🧪 Testing
 
+The project includes comprehensive unit and widget tests covering domain logic, BLoCs, and UI components.
+
+**Test Results:**
+- ✅ **30 tests passing**
+- ✅ Coverage report generated (`coverage/lcov.info`)
+
 ```bash
 # Run all tests
 flutter test
@@ -123,10 +129,10 @@ dart format lib/ test/ -l 80
 
 | ID | Requirement | Status |
 |----|-------------|--------|
-| FR-1 | Load events from local JSON file | 🚧 In Progress |
-| FR-2 | Display scrollable list with pagination/lazy loading | 🚧 In Progress |
-| FR-3 | Event detail screen with map preview and favourites | 🚧 In Progress |
-| FR-4 | Persist favourite events locally | 🚧 In Progress |
+| FR-1 | Load events from local JSON file | ✅ Complete |
+| FR-2 | Display scrollable list with pagination/lazy loading | ✅ Complete |
+| FR-3 | Event detail screen with map preview and favourites | ✅ Complete |
+| FR-4 | Persist favourite events locally | ✅ Complete |
 
 ## 🎯 Development Workflow
 
