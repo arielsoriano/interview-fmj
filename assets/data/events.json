@@ -1,0 +1,282 @@
+[
+  {
+    "id": "1",
+    "title": "Barcelona Jazz Festival 2026",
+    "description": "Experience the finest jazz musicians from around the world in this three-day festival featuring live performances, workshops, and jam sessions under the stars.",
+    "category": "Music",
+    "startDate": "2026-06-15T20:00:00Z",
+    "endDate": "2026-06-15T23:30:00Z",
+    "imageUrl": "https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=600&h=300&fit=crop",
+    "location": {
+      "name": "Parc de la Ciutadella",
+      "lat": 41.3887,
+      "lng": 2.1871
+    }
+  },
+  {
+    "id": "2",
+    "title": "Tech Innovation Summit",
+    "description": "Join industry leaders and innovators for a full day of keynotes, panel discussions, and networking focused on AI, blockchain, and sustainable technology.",
+    "category": "Technology",
+    "startDate": "2026-03-20T09:00:00Z",
+    "endDate": "2026-03-20T18:00:00Z",
+    "imageUrl": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&h=300&fit=crop",
+    "location": {
+      "name": "CCIB - Barcelona International Convention Centre",
+      "lat": 41.4096,
+      "lng": 2.2165
+    }
+  },
+  {
+    "id": "3",
+    "title": "FC Barcelona vs Real Madrid",
+    "description": "Witness El Clásico live at Camp Nou! The most anticipated match of the season between Spain's biggest football rivals.",
+    "category": "Sports",
+    "startDate": "2026-04-12T21:00:00Z",
+    "endDate": "2026-04-12T23:00:00Z",
+    "imageUrl": "https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=600&h=300&fit=crop",
+    "location": {
+      "name": "Camp Nou Stadium",
+      "lat": 41.3809,
+      "lng": 2.1228
+    }
+  },
+  {
+    "id": "4",
+    "title": "Mediterranean Food Market",
+    "description": "A culinary journey through Mediterranean flavors with local vendors, cooking demonstrations, wine tastings, and traditional music performances.",
+    "category": "Food",
+    "startDate": "2026-05-08T11:00:00Z",
+    "endDate": "2026-05-08T20:00:00Z",
+    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&h=300&fit=crop",
+    "location": {
+      "name": "Mercat de Sant Antoni",
+      "lat": 41.3769,
+      "lng": 2.1667
+    }
+  },
+  {
+    "id": "5",
+    "title": "Contemporary Art Exhibition",
+    "description": "Explore cutting-edge contemporary art from emerging and established artists. Interactive installations, digital art, and thought-provoking sculptures.",
+    "category": "Art",
+    "startDate": "2026-03-01T10:00:00Z",
+    "endDate": "2026-03-01T21:00:00Z",
+    "imageUrl": "https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?w=600&h=300&fit=crop",
+    "location": {
+      "name": "MACBA - Museum of Contemporary Art",
+      "lat": 41.3830,
+      "lng": 2.1670
+    }
+  },
+  {
+    "id": "6",
+    "title": "Sunrise Yoga & Meditation",
+    "description": "Start your day with energy and mindfulness. All levels welcome. Includes guided meditation, breathwork, and a healthy breakfast after the session.",
+    "category": "Health & Wellness",
+    "startDate": "2026-04-25T06:30:00Z",
+    "endDate": "2026-04-25T08:30:00Z",
+    "imageUrl": "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&h=300&fit=crop",
+    "location": {
+      "name": "Park Güell",
+      "lat": 41.4145,
+      "lng": 2.1527
+    }
+  },
+  {
+    "id": "7",
+    "title": "Electronic Music Festival",
+    "description": "Three stages of electronic music featuring international DJs and producers. Techno, house, and experimental electronic sounds until dawn.",
+    "category": "Music",
+    "startDate": "2026-07-22T22:00:00Z",
+    "endDate": "2026-07-23T06:00:00Z",
+    "imageUrl": "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=600&h=300&fit=crop",
+    "location": {
+      "name": "Forum Barcelona",
+      "lat": 41.4092,
+      "lng": 2.2167
+    }
+  },
+  {
+    "id": "8",
+    "title": "Startup Pitch Competition",
+    "description": "Watch innovative startups pitch their ideas to investors and industry experts. Networking session and workshops on entrepreneurship included.",
+    "category": "Technology",
+    "startDate": "2026-05-14T16:00:00Z",
+    "endDate": "2026-05-14T21:00:00Z",
+    "imageUrl": "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=600&h=300&fit=crop",
+    "location": {
+      "name": "Barcelona Tech City",
+      "lat": 41.3991,
+      "lng": 2.1910
+    }
+  },
+  {
+    "id": "9",
+    "title": "Barcelona Marathon 2026",
+    "description": "Run through the most iconic streets of Barcelona in this internationally acclaimed marathon. 42km of stunning Mediterranean coastline and architecture.",
+    "category": "Sports",
+    "startDate": "2026-03-15T08:00:00Z",
+    "endDate": "2026-03-15T14:00:00Z",
+    "imageUrl": "https://images.unsplash.com/photo-1532444458054-01a7dd3e9fca?w=600&h=300&fit=crop",
+    "location": {
+      "name": "Plaza España - Start Line",
+      "lat": 41.3755,
+      "lng": 2.1490
+    }
+  },
+  {
+    "id": "10",
+    "title": "Tapas & Wine Tasting Tour",
+    "description": "Guided walking tour through Barcelona's best tapas bars with wine pairings. Learn about Catalan cuisine and wine culture from expert sommeliers.",
+    "category": "Food",
+    "startDate": "2026-04-18T19:00:00Z",
+    "endDate": "2026-04-18T23:00:00Z",
+    "imageUrl": "https://images.unsplash.com/photo-1567337710282-00832b415979?w=600&h=300&fit=crop",
+    "location": {
+      "name": "El Born District",
+      "lat": 41.3850,
+      "lng": 2.1820
+    }
+  },
+  {
+    "id": "11",
+    "title": "Street Art & Graffiti Workshop",
+    "description": "Learn urban art techniques from renowned street artists. Create your own piece on a legal wall and discover Barcelona's vibrant street art scene.",
+    "category": "Art",
+    "startDate": "2026-05-29T14:00:00Z",
+    "endDate": "2026-05-29T18:00:00Z",
+    "imageUrl": "https://images.unsplash.com/photo-1499781350541-7783f6c6a0c8?w=600&h=300&fit=crop",
+    "location": {
+      "name": "Poblenou Urban District",
+      "lat": 41.4003,
+      "lng": 2.1959
+    }
+  },
+  {
+    "id": "12",
+    "title": "Flamenco Night Experience",
+    "description": "Authentic flamenco performance with live guitar, passionate dancing, and soulful singing. Includes traditional Spanish dinner and welcome drink.",
+    "category": "Music",
+    "startDate": "2026-06-07T21:00:00Z",
+    "endDate": "2026-06-07T23:30:00Z",
+    "imageUrl": "https://images.unsplash.com/photo-1508700929628-666bc8bd84ea?w=600&h=300&fit=crop",
+    "location": {
+      "name": "Palau de la Música Catalana",
+      "lat": 41.3875,
+      "lng": 2.1754
+    }
+  },
+  {
+    "id": "13",
+    "title": "Web3 & Blockchain Conference",
+    "description": "Dive into the future of decentralized technology. Talks on NFTs, DeFi, DAOs, and the metaverse from industry pioneers and developers.",
+    "category": "Technology",
+    "startDate": "2026-06-03T10:00:00Z",
+    "endDate": "2026-06-03T19:00:00Z",
+    "imageUrl": "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=600&h=300&fit=crop",
+    "location": {
+      "name": "Fira Barcelona Montjuïc",
+      "lat": 41.3704,
+      "lng": 2.1489
+    }
+  },
+  {
+    "id": "14",
+    "title": "Beach Volleyball Tournament",
+    "description": "Professional and amateur beach volleyball competition on Barcelona's famous beach. Open categories, prizes, and beachside party after matches.",
+    "category": "Sports",
+    "startDate": "2026-07-10T09:00:00Z",
+    "endDate": "2026-07-10T19:00:00Z",
+    "imageUrl": "https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?w=600&h=300&fit=crop",
+    "location": {
+      "name": "Barceloneta Beach",
+      "lat": 41.3788,
+      "lng": 2.1905
+    }
+  },
+  {
+    "id": "15",
+    "title": "Vegan Food Festival",
+    "description": "Discover delicious plant-based cuisine from local and international vendors. Cooking demos, nutrition talks, and sustainable living workshops.",
+    "category": "Food",
+    "startDate": "2026-05-23T12:00:00Z",
+    "endDate": "2026-05-23T21:00:00Z",
+    "imageUrl": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&h=300&fit=crop",
+    "location": {
+      "name": "Parc de Joan Miró",
+      "lat": 41.3761,
+      "lng": 2.1506
+    }
+  },
+  {
+    "id": "16",
+    "title": "Photography Master Class",
+    "description": "Full-day workshop covering portrait, street, and architectural photography with renowned photographer. Includes practical session around Gothic Quarter.",
+    "category": "Art",
+    "startDate": "2026-04-05T09:00:00Z",
+    "endDate": "2026-04-05T18:00:00Z",
+    "imageUrl": "https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=600&h=300&fit=crop",
+    "location": {
+      "name": "Gothic Quarter",
+      "lat": 41.3825,
+      "lng": 2.1769
+    }
+  },
+  {
+    "id": "17",
+    "title": "Meditation & Mindfulness Retreat",
+    "description": "Weekend retreat focused on stress reduction, mindfulness practices, and personal growth. Includes accommodation, healthy meals, and guided sessions.",
+    "category": "Health & Wellness",
+    "startDate": "2026-06-20T16:00:00Z",
+    "endDate": "2026-06-22T12:00:00Z",
+    "imageUrl": "https://images.unsplash.com/photo-1545389336-cf090694435e?w=600&h=300&fit=crop",
+    "location": {
+      "name": "Tibidabo Mountain",
+      "lat": 41.4231,
+      "lng": 2.1185
+    }
+  },
+  {
+    "id": "18",
+    "title": "Classical Orchestra Concert",
+    "description": "Barcelona Symphony Orchestra performs masterpieces by Mozart, Beethoven, and Tchaikovsky. Special guest conductor from Vienna Philharmonic.",
+    "category": "Music",
+    "startDate": "2026-03-28T20:00:00Z",
+    "endDate": "2026-03-28T22:30:00Z",
+    "imageUrl": "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?w=600&h=300&fit=crop",
+    "location": {
+      "name": "L'Auditori Barcelona",
+      "lat": 41.3955,
+      "lng": 2.1897
+    }
+  },
+  {
+    "id": "19",
+    "title": "AI & Machine Learning Bootcamp",
+    "description": "Intensive 2-day bootcamp covering deep learning, natural language processing, and computer vision. Hands-on projects and certification included.",
+    "category": "Technology",
+    "startDate": "2026-04-29T09:00:00Z",
+    "endDate": "2026-04-30T18:00:00Z",
+    "imageUrl": "https://images.unsplash.com/photo-1535378917042-10a22c95931a?w=600&h=300&fit=crop",
+    "location": {
+      "name": "Universitat Politècnica de Catalunya",
+      "lat": 41.3894,
+      "lng": 2.1124
+    }
+  },
+  {
+    "id": "20",
+    "title": "International Bike Race",
+    "description": "Professional cycling race through Barcelona and surrounding mountains. 120km route with breathtaking views and challenging climbs.",
+    "category": "Sports",
+    "startDate": "2026-08-16T07:00:00Z",
+    "endDate": "2026-08-16T14:00:00Z",
+    "imageUrl": "https://images.unsplash.com/photo-1541625602330-2277a4c46182?w=600&h=300&fit=crop",
+    "location": {
+      "name": "Arc de Triomf - Start",
+      "lat": 41.3911,
+      "lng": 2.1806
+    }
+  }
+]
