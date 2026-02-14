@@ -21,6 +21,7 @@ import '../../features/events/domain/usecases/filter_events_by_category.dart'
     as _i618;
 import '../../features/events/domain/usecases/get_events.dart' as _i286;
 import '../../features/events/domain/usecases/search_events.dart' as _i996;
+import '../../features/events/presentation/bloc/events_bloc.dart' as _i177;
 
 extension GetItInjectableX on _i174.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -43,6 +44,11 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i286.GetEventsUseCase(gh<_i84.IEventRepository>()));
     gh.factory<_i996.SearchEventsUseCase>(
         () => _i996.SearchEventsUseCase(gh<_i84.IEventRepository>()));
+    gh.factory<_i177.EventsBloc>(() => _i177.EventsBloc(
+          gh<_i286.GetEventsUseCase>(),
+          gh<_i996.SearchEventsUseCase>(),
+          gh<_i618.FilterEventsByCategoryUseCase>(),
+        ));
     return this;
   }
 }
