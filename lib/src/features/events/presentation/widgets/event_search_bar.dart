@@ -56,9 +56,9 @@ class _EventSearchBarState extends State<EventSearchBar>
 
   void _handleFocusChange() {
     if (_focusNode.hasFocus) {
-      _animationController.forward();
+      unawaited(_animationController.forward());
     } else {
-      _animationController.reverse();
+      unawaited(_animationController.reverse());
     }
   }
 

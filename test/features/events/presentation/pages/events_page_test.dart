@@ -62,7 +62,7 @@ void main() {
   group('EventsPage', () {
     testWidgets(
       'displays loading indicator when state is loading',
-      (WidgetTester tester) async {
+      (tester) async {
         when(() => mockEventsBloc.state).thenReturn(
           const EventsState.loading(),
         );
@@ -78,7 +78,7 @@ void main() {
 
     testWidgets(
       'displays list of EventCards when state is loaded',
-      (WidgetTester tester) async {
+      (tester) async {
         final testEvents = [
           Event(
             id: '1',
@@ -127,7 +127,7 @@ void main() {
 
     testWidgets(
       'displays error message when state is error',
-      (WidgetTester tester) async {
+      (tester) async {
         const errorMessage = 'Failed to load events';
 
         when(() => mockEventsBloc.state).thenReturn(
@@ -149,7 +149,7 @@ void main() {
 
     testWidgets(
       'displays empty state when loaded with no events',
-      (WidgetTester tester) async {
+      (tester) async {
         when(() => mockEventsBloc.state).thenReturn(
           const EventsState.loaded([]),
         );
@@ -171,7 +171,7 @@ void main() {
 
     testWidgets(
       'displays app bar with title and filter button',
-      (WidgetTester tester) async {
+      (tester) async {
         when(() => mockEventsBloc.state).thenReturn(
           const EventsState.initial(),
         );

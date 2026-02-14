@@ -10,8 +10,6 @@ import 'package:mocktail/mocktail.dart';
 
 class MockFavouritesCubit extends Mock implements FavouritesCubit {}
 
-class MockGoRouter extends Mock implements GoRouter {}
-
 void main() {
   late MockFavouritesCubit mockFavouritesCubit;
   late Event testEvent;
@@ -70,7 +68,7 @@ void main() {
     );
   }
 
-  testWidgets('displays event title', (WidgetTester tester) async {
+  testWidgets('displays event title', (tester) async {
     await tester.pumpWidget(
       createWidgetUnderTest(
         router: GoRouter(
@@ -91,7 +89,7 @@ void main() {
     expect(find.text('Sunset Yoga in the Park'), findsOneWidget);
   });
 
-  testWidgets('displays event category', (WidgetTester tester) async {
+  testWidgets('displays event category', (tester) async {
     await tester.pumpWidget(
       createWidgetUnderTest(
         router: GoRouter(
@@ -112,7 +110,7 @@ void main() {
     expect(find.text('Health & Wellness'), findsOneWidget);
   });
 
-  testWidgets('displays event date', (WidgetTester tester) async {
+  testWidgets('displays event date', (tester) async {
     await tester.pumpWidget(
       createWidgetUnderTest(
         router: GoRouter(
@@ -133,7 +131,7 @@ void main() {
     expect(find.text('Tue, Jul 1, 2025'), findsOneWidget);
   });
 
-  testWidgets('displays favourite icon', (WidgetTester tester) async {
+  testWidgets('displays favourite icon', (tester) async {
     await tester.pumpWidget(
       createWidgetUnderTest(
         router: GoRouter(
@@ -156,7 +154,7 @@ void main() {
 
   testWidgets(
     'displays filled favourite icon when event is favourite',
-    (WidgetTester tester) async {
+    (tester) async {
       when(() => mockFavouritesCubit.state).thenReturn(
         const FavouritesState(favouriteIds: {'1'}),
       );
@@ -182,7 +180,7 @@ void main() {
     },
   );
 
-  testWidgets('navigates to detail page on tap', (WidgetTester tester) async {
+  testWidgets('navigates to detail page on tap', (tester) async {
     var navigationOccurred = false;
 
     await tester.pumpWidget(
@@ -214,7 +212,7 @@ void main() {
     expect(find.text('Detail Page'), findsOneWidget);
   });
 
-  testWidgets('displays location name', (WidgetTester tester) async {
+  testWidgets('displays location name', (tester) async {
     await tester.pumpWidget(
       createWidgetUnderTest(
         router: GoRouter(

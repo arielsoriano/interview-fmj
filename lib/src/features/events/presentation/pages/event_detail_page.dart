@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:city_events_explorer/src/core/injection/injection_container.dart';
 import 'package:city_events_explorer/src/core/utils/app_colors.dart';
 import 'package:city_events_explorer/src/core/utils/app_spacing.dart';
@@ -20,7 +22,11 @@ class EventDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt<FavouritesCubit>()..loadFavourites(),
+      create: (context) {
+        final cubit = getIt<FavouritesCubit>();
+        unawaited(cubit.loadFavourites());
+        return cubit;
+      },
       child: Scaffold(
         backgroundColor: AppColors.background,
         body: CustomScrollView(

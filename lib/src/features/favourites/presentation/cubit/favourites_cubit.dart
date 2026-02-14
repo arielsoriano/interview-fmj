@@ -38,7 +38,7 @@ class FavouritesCubit extends Cubit<FavouritesState> {
           isLoading: false,
         ),
       );
-    } catch (e) {
+    } on Exception {
       emit(
         state.copyWith(
           isLoading: false,
@@ -58,7 +58,7 @@ class FavouritesCubit extends Cubit<FavouritesState> {
 
     try {
       await _toggleFavouriteUseCase(eventId);
-    } catch (e) {
+    } on Exception {
       final revertedIds = Set<String>.from(state.favouriteIds);
       if (revertedIds.contains(eventId)) {
         revertedIds.remove(eventId);

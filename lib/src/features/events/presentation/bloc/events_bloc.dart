@@ -63,7 +63,7 @@ class EventsBloc extends Bloc<EventsEvent, EventsState> {
       _allEvents = await _getEventsUseCase();
       _showOnlyFavourites = false;
       emit(EventsState.loaded(_allEvents));
-    } catch (e) {
+    } on Exception catch (e) {
       emit(EventsState.error(e.toString()));
     }
   }
@@ -83,7 +83,7 @@ class EventsBloc extends Bloc<EventsEvent, EventsState> {
           showOnlyFavourites: _showOnlyFavourites,
         ),
       );
-    } catch (e) {
+    } on Exception catch (e) {
       emit(EventsState.error(e.toString()));
     }
   }
@@ -103,7 +103,7 @@ class EventsBloc extends Bloc<EventsEvent, EventsState> {
           showOnlyFavourites: _showOnlyFavourites,
         ),
       );
-    } catch (e) {
+    } on Exception catch (e) {
       emit(EventsState.error(e.toString()));
     }
   }
@@ -117,7 +117,7 @@ class EventsBloc extends Bloc<EventsEvent, EventsState> {
       _allEvents = await _getEventsUseCase();
       _showOnlyFavourites = false;
       emit(EventsState.loaded(_allEvents));
-    } catch (e) {
+    } on Exception catch (e) {
       emit(EventsState.error(e.toString()));
     }
   }

@@ -2,7 +2,7 @@ import 'package:city_events_explorer/src/core/injection/injection_container.conf
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 
-final getIt = GetIt.instance;
+final GetIt getIt = GetIt.instance;
 
 @InjectableInit(preferRelativeImports: true)
 Future<void> configureDependencies() => getIt.init();

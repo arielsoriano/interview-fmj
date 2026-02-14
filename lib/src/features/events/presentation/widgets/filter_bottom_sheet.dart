@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:city_events_explorer/src/core/utils/app_colors.dart';
 import 'package:city_events_explorer/src/core/utils/app_spacing.dart';
 import 'package:city_events_explorer/src/features/events/presentation/bloc/events_bloc.dart';
@@ -12,13 +14,15 @@ class FilterBottomSheet extends StatefulWidget {
 
   static void show(BuildContext context) {
     FocusScope.of(context).unfocus();
-    showModalBottomSheet<void>(
-      context: context,
-      isScrollControlled: true,
-      backgroundColor: Colors.transparent,
-      builder: (_) => BlocProvider.value(
-        value: context.read<EventsBloc>(),
-        child: const FilterBottomSheet(),
+    unawaited(
+      showModalBottomSheet<void>(
+        context: context,
+        isScrollControlled: true,
+        backgroundColor: Colors.transparent,
+        builder: (_) => BlocProvider.value(
+          value: context.read<EventsBloc>(),
+          child: const FilterBottomSheet(),
+        ),
       ),
     );
   }
@@ -62,7 +66,7 @@ class _FilterBottomSheetState extends State<FilterBottomSheet>
         curve: Curves.easeOut,
       ),
     );
-    _animationController.forward();
+    unawaited(_animationController.forward());
   }
 
   @override

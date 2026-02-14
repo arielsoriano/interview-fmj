@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:city_events_explorer/src/core/utils/app_colors.dart';
 import 'package:city_events_explorer/src/features/favourites/presentation/cubit/favourites_cubit.dart';
 import 'package:flutter/material.dart';
@@ -42,10 +44,13 @@ class _FavouriteButtonState extends State<FavouriteButton>
   }
 
   void _handleToggle() {
-    _animationController.forward().then((_) {
-      _animationController.reverse();
-    });
-    context.read<FavouritesCubit>().toggleFavourite(widget.eventId);
+    unawaited(_playAnimation());
+    unawaited(context.read<FavouritesCubit>().toggleFavourite(widget.eventId));
+  }
+
+  Future<void> _playAnimation() async {
+    await _animationController.forward();
+    await _animationController.reverse();
   }
 
   @override

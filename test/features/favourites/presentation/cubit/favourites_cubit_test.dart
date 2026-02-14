@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bloc_test/bloc_test.dart';
 import 'package:city_events_explorer/src/features/favourites/domain/usecases/get_favourites.dart';
 import 'package:city_events_explorer/src/features/favourites/domain/usecases/toggle_favourite.dart';
@@ -25,7 +27,7 @@ void main() {
   });
 
   tearDown(() {
-    cubit.close();
+    unawaited(cubit.close());
   });
 
   group('FavouritesCubit', () {

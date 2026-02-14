@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bloc_test/bloc_test.dart';
 import 'package:city_events_explorer/src/features/events/domain/entities/event.dart';
 import 'package:city_events_explorer/src/features/events/domain/entities/location.dart';
@@ -88,7 +90,7 @@ void main() {
   });
 
   tearDown(() {
-    bloc.close();
+    unawaited(bloc.close());
   });
 
   group('EventsBloc', () {
