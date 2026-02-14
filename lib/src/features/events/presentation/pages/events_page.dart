@@ -4,6 +4,7 @@ import 'package:city_events_explorer/src/features/events/presentation/bloc/event
 import 'package:city_events_explorer/src/features/events/presentation/widgets/event_card.dart';
 import 'package:city_events_explorer/src/features/events/presentation/widgets/event_search_bar.dart';
 import 'package:city_events_explorer/src/features/events/presentation/widgets/filter_bottom_sheet.dart';
+import 'package:city_events_explorer/src/features/favourites/presentation/cubit/favourites_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -12,9 +13,16 @@ class EventsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) =>
-          getIt<EventsBloc>()..add(const EventsEvent.loadEvents()),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) =>
+              getIt<EventsBloc>()..add(const EventsEvent.loadEvents()),
+        ),
+        BlocProvider(
+          create: (context) => getIt<FavouritesCubit>()..loadFavourites(),
+        ),
+      ],
       child: const EventsView(),
     );
   }
@@ -43,6 +51,50 @@ class EventsView extends StatelessWidget {
       body: Column(
         children: [
           const EventSearchBar(),
+          BlocBuilder<EventsBloc, EventsState>(
+            builder: (context, state) {
+              return state.maybeWhen(
+                loaded: (events, showOnlyFavourites) {
+                  return Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 8,
+                    ),
+                    child: Row(
+                      children: [
+                        FilterChip(
+                          label: const Text('Favourites'),
+                          selected: showOnlyFavourites,
+                          onSelected: (_) {
+                            context.read<EventsBloc>().add(
+                                  const EventsEvent.toggleShowOnlyFavourites(),
+                                );
+                          },
+                          avatar: Icon(
+                            showOnlyFavourites
+                                ? Icons.favorite
+                                : Icons.favorite_border,
+                            size: 18,
+                            color: showOnlyFavourites
+                                ? AppColors.textOnPrimary
+                                : AppColors.favourite,
+                          ),
+                          selectedColor: AppColors.favourite,
+                          showCheckmark: false,
+                          labelStyle: TextStyle(
+                            color: showOnlyFavourites
+                                ? AppColors.textOnPrimary
+                                : AppColors.textPrimary,
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
+                },
+                orElse: () => const SizedBox.shrink(),
+              );
+            },
+          ),
           Expanded(
             child: BlocBuilder<EventsBloc, EventsState>(
               builder: (context, state) {
@@ -79,7 +131,7 @@ class EventsView extends StatelessWidget {
                   loading: () => const Center(
                     child: CircularProgressIndicator(),
                   ),
-                  loaded: (events) {
+                  loaded: (events, showOnlyFavourites) {
                     if (events.isEmpty) {
                       return Center(
                         child: Column(

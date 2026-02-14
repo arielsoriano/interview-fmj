@@ -22,6 +22,7 @@ mixin _$EventsEvent {
     required TResult Function(String query) searchEvents,
     required TResult Function(String category) filterByCategory,
     required TResult Function() clearFilters,
+    required TResult Function() toggleShowOnlyFavourites,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$EventsEvent {
     TResult? Function(String query)? searchEvents,
     TResult? Function(String category)? filterByCategory,
     TResult? Function()? clearFilters,
+    TResult? Function()? toggleShowOnlyFavourites,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +40,7 @@ mixin _$EventsEvent {
     TResult Function(String query)? searchEvents,
     TResult Function(String category)? filterByCategory,
     TResult Function()? clearFilters,
+    TResult Function()? toggleShowOnlyFavourites,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +50,8 @@ mixin _$EventsEvent {
     required TResult Function(_SearchEvents value) searchEvents,
     required TResult Function(_FilterByCategory value) filterByCategory,
     required TResult Function(_ClearFilters value) clearFilters,
+    required TResult Function(_ToggleShowOnlyFavourites value)
+        toggleShowOnlyFavourites,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +60,8 @@ mixin _$EventsEvent {
     TResult? Function(_SearchEvents value)? searchEvents,
     TResult? Function(_FilterByCategory value)? filterByCategory,
     TResult? Function(_ClearFilters value)? clearFilters,
+    TResult? Function(_ToggleShowOnlyFavourites value)?
+        toggleShowOnlyFavourites,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +70,7 @@ mixin _$EventsEvent {
     TResult Function(_SearchEvents value)? searchEvents,
     TResult Function(_FilterByCategory value)? filterByCategory,
     TResult Function(_ClearFilters value)? clearFilters,
+    TResult Function(_ToggleShowOnlyFavourites value)? toggleShowOnlyFavourites,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -134,6 +142,7 @@ class _$LoadEventsImpl implements _LoadEvents {
     required TResult Function(String query) searchEvents,
     required TResult Function(String category) filterByCategory,
     required TResult Function() clearFilters,
+    required TResult Function() toggleShowOnlyFavourites,
   }) {
     return loadEvents();
   }
@@ -145,6 +154,7 @@ class _$LoadEventsImpl implements _LoadEvents {
     TResult? Function(String query)? searchEvents,
     TResult? Function(String category)? filterByCategory,
     TResult? Function()? clearFilters,
+    TResult? Function()? toggleShowOnlyFavourites,
   }) {
     return loadEvents?.call();
   }
@@ -156,6 +166,7 @@ class _$LoadEventsImpl implements _LoadEvents {
     TResult Function(String query)? searchEvents,
     TResult Function(String category)? filterByCategory,
     TResult Function()? clearFilters,
+    TResult Function()? toggleShowOnlyFavourites,
     required TResult orElse(),
   }) {
     if (loadEvents != null) {
@@ -171,6 +182,8 @@ class _$LoadEventsImpl implements _LoadEvents {
     required TResult Function(_SearchEvents value) searchEvents,
     required TResult Function(_FilterByCategory value) filterByCategory,
     required TResult Function(_ClearFilters value) clearFilters,
+    required TResult Function(_ToggleShowOnlyFavourites value)
+        toggleShowOnlyFavourites,
   }) {
     return loadEvents(this);
   }
@@ -182,6 +195,8 @@ class _$LoadEventsImpl implements _LoadEvents {
     TResult? Function(_SearchEvents value)? searchEvents,
     TResult? Function(_FilterByCategory value)? filterByCategory,
     TResult? Function(_ClearFilters value)? clearFilters,
+    TResult? Function(_ToggleShowOnlyFavourites value)?
+        toggleShowOnlyFavourites,
   }) {
     return loadEvents?.call(this);
   }
@@ -193,6 +208,7 @@ class _$LoadEventsImpl implements _LoadEvents {
     TResult Function(_SearchEvents value)? searchEvents,
     TResult Function(_FilterByCategory value)? filterByCategory,
     TResult Function(_ClearFilters value)? clearFilters,
+    TResult Function(_ToggleShowOnlyFavourites value)? toggleShowOnlyFavourites,
     required TResult orElse(),
   }) {
     if (loadEvents != null) {
@@ -278,6 +294,7 @@ class _$SearchEventsImpl implements _SearchEvents {
     required TResult Function(String query) searchEvents,
     required TResult Function(String category) filterByCategory,
     required TResult Function() clearFilters,
+    required TResult Function() toggleShowOnlyFavourites,
   }) {
     return searchEvents(query);
   }
@@ -289,6 +306,7 @@ class _$SearchEventsImpl implements _SearchEvents {
     TResult? Function(String query)? searchEvents,
     TResult? Function(String category)? filterByCategory,
     TResult? Function()? clearFilters,
+    TResult? Function()? toggleShowOnlyFavourites,
   }) {
     return searchEvents?.call(query);
   }
@@ -300,6 +318,7 @@ class _$SearchEventsImpl implements _SearchEvents {
     TResult Function(String query)? searchEvents,
     TResult Function(String category)? filterByCategory,
     TResult Function()? clearFilters,
+    TResult Function()? toggleShowOnlyFavourites,
     required TResult orElse(),
   }) {
     if (searchEvents != null) {
@@ -315,6 +334,8 @@ class _$SearchEventsImpl implements _SearchEvents {
     required TResult Function(_SearchEvents value) searchEvents,
     required TResult Function(_FilterByCategory value) filterByCategory,
     required TResult Function(_ClearFilters value) clearFilters,
+    required TResult Function(_ToggleShowOnlyFavourites value)
+        toggleShowOnlyFavourites,
   }) {
     return searchEvents(this);
   }
@@ -326,6 +347,8 @@ class _$SearchEventsImpl implements _SearchEvents {
     TResult? Function(_SearchEvents value)? searchEvents,
     TResult? Function(_FilterByCategory value)? filterByCategory,
     TResult? Function(_ClearFilters value)? clearFilters,
+    TResult? Function(_ToggleShowOnlyFavourites value)?
+        toggleShowOnlyFavourites,
   }) {
     return searchEvents?.call(this);
   }
@@ -337,6 +360,7 @@ class _$SearchEventsImpl implements _SearchEvents {
     TResult Function(_SearchEvents value)? searchEvents,
     TResult Function(_FilterByCategory value)? filterByCategory,
     TResult Function(_ClearFilters value)? clearFilters,
+    TResult Function(_ToggleShowOnlyFavourites value)? toggleShowOnlyFavourites,
     required TResult orElse(),
   }) {
     if (searchEvents != null) {
@@ -432,6 +456,7 @@ class _$FilterByCategoryImpl implements _FilterByCategory {
     required TResult Function(String query) searchEvents,
     required TResult Function(String category) filterByCategory,
     required TResult Function() clearFilters,
+    required TResult Function() toggleShowOnlyFavourites,
   }) {
     return filterByCategory(category);
   }
@@ -443,6 +468,7 @@ class _$FilterByCategoryImpl implements _FilterByCategory {
     TResult? Function(String query)? searchEvents,
     TResult? Function(String category)? filterByCategory,
     TResult? Function()? clearFilters,
+    TResult? Function()? toggleShowOnlyFavourites,
   }) {
     return filterByCategory?.call(category);
   }
@@ -454,6 +480,7 @@ class _$FilterByCategoryImpl implements _FilterByCategory {
     TResult Function(String query)? searchEvents,
     TResult Function(String category)? filterByCategory,
     TResult Function()? clearFilters,
+    TResult Function()? toggleShowOnlyFavourites,
     required TResult orElse(),
   }) {
     if (filterByCategory != null) {
@@ -469,6 +496,8 @@ class _$FilterByCategoryImpl implements _FilterByCategory {
     required TResult Function(_SearchEvents value) searchEvents,
     required TResult Function(_FilterByCategory value) filterByCategory,
     required TResult Function(_ClearFilters value) clearFilters,
+    required TResult Function(_ToggleShowOnlyFavourites value)
+        toggleShowOnlyFavourites,
   }) {
     return filterByCategory(this);
   }
@@ -480,6 +509,8 @@ class _$FilterByCategoryImpl implements _FilterByCategory {
     TResult? Function(_SearchEvents value)? searchEvents,
     TResult? Function(_FilterByCategory value)? filterByCategory,
     TResult? Function(_ClearFilters value)? clearFilters,
+    TResult? Function(_ToggleShowOnlyFavourites value)?
+        toggleShowOnlyFavourites,
   }) {
     return filterByCategory?.call(this);
   }
@@ -491,6 +522,7 @@ class _$FilterByCategoryImpl implements _FilterByCategory {
     TResult Function(_SearchEvents value)? searchEvents,
     TResult Function(_FilterByCategory value)? filterByCategory,
     TResult Function(_ClearFilters value)? clearFilters,
+    TResult Function(_ToggleShowOnlyFavourites value)? toggleShowOnlyFavourites,
     required TResult orElse(),
   }) {
     if (filterByCategory != null) {
@@ -558,6 +590,7 @@ class _$ClearFiltersImpl implements _ClearFilters {
     required TResult Function(String query) searchEvents,
     required TResult Function(String category) filterByCategory,
     required TResult Function() clearFilters,
+    required TResult Function() toggleShowOnlyFavourites,
   }) {
     return clearFilters();
   }
@@ -569,6 +602,7 @@ class _$ClearFiltersImpl implements _ClearFilters {
     TResult? Function(String query)? searchEvents,
     TResult? Function(String category)? filterByCategory,
     TResult? Function()? clearFilters,
+    TResult? Function()? toggleShowOnlyFavourites,
   }) {
     return clearFilters?.call();
   }
@@ -580,6 +614,7 @@ class _$ClearFiltersImpl implements _ClearFilters {
     TResult Function(String query)? searchEvents,
     TResult Function(String category)? filterByCategory,
     TResult Function()? clearFilters,
+    TResult Function()? toggleShowOnlyFavourites,
     required TResult orElse(),
   }) {
     if (clearFilters != null) {
@@ -595,6 +630,8 @@ class _$ClearFiltersImpl implements _ClearFilters {
     required TResult Function(_SearchEvents value) searchEvents,
     required TResult Function(_FilterByCategory value) filterByCategory,
     required TResult Function(_ClearFilters value) clearFilters,
+    required TResult Function(_ToggleShowOnlyFavourites value)
+        toggleShowOnlyFavourites,
   }) {
     return clearFilters(this);
   }
@@ -606,6 +643,8 @@ class _$ClearFiltersImpl implements _ClearFilters {
     TResult? Function(_SearchEvents value)? searchEvents,
     TResult? Function(_FilterByCategory value)? filterByCategory,
     TResult? Function(_ClearFilters value)? clearFilters,
+    TResult? Function(_ToggleShowOnlyFavourites value)?
+        toggleShowOnlyFavourites,
   }) {
     return clearFilters?.call(this);
   }
@@ -617,6 +656,7 @@ class _$ClearFiltersImpl implements _ClearFilters {
     TResult Function(_SearchEvents value)? searchEvents,
     TResult Function(_FilterByCategory value)? filterByCategory,
     TResult Function(_ClearFilters value)? clearFilters,
+    TResult Function(_ToggleShowOnlyFavourites value)? toggleShowOnlyFavourites,
     required TResult orElse(),
   }) {
     if (clearFilters != null) {
@@ -631,12 +671,141 @@ abstract class _ClearFilters implements EventsEvent {
 }
 
 /// @nodoc
+abstract class _$$ToggleShowOnlyFavouritesImplCopyWith<$Res> {
+  factory _$$ToggleShowOnlyFavouritesImplCopyWith(
+          _$ToggleShowOnlyFavouritesImpl value,
+          $Res Function(_$ToggleShowOnlyFavouritesImpl) then) =
+      __$$ToggleShowOnlyFavouritesImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ToggleShowOnlyFavouritesImplCopyWithImpl<$Res>
+    extends _$EventsEventCopyWithImpl<$Res, _$ToggleShowOnlyFavouritesImpl>
+    implements _$$ToggleShowOnlyFavouritesImplCopyWith<$Res> {
+  __$$ToggleShowOnlyFavouritesImplCopyWithImpl(
+      _$ToggleShowOnlyFavouritesImpl _value,
+      $Res Function(_$ToggleShowOnlyFavouritesImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of EventsEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$ToggleShowOnlyFavouritesImpl implements _ToggleShowOnlyFavourites {
+  const _$ToggleShowOnlyFavouritesImpl();
+
+  @override
+  String toString() {
+    return 'EventsEvent.toggleShowOnlyFavourites()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ToggleShowOnlyFavouritesImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadEvents,
+    required TResult Function(String query) searchEvents,
+    required TResult Function(String category) filterByCategory,
+    required TResult Function() clearFilters,
+    required TResult Function() toggleShowOnlyFavourites,
+  }) {
+    return toggleShowOnlyFavourites();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadEvents,
+    TResult? Function(String query)? searchEvents,
+    TResult? Function(String category)? filterByCategory,
+    TResult? Function()? clearFilters,
+    TResult? Function()? toggleShowOnlyFavourites,
+  }) {
+    return toggleShowOnlyFavourites?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadEvents,
+    TResult Function(String query)? searchEvents,
+    TResult Function(String category)? filterByCategory,
+    TResult Function()? clearFilters,
+    TResult Function()? toggleShowOnlyFavourites,
+    required TResult orElse(),
+  }) {
+    if (toggleShowOnlyFavourites != null) {
+      return toggleShowOnlyFavourites();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEvents value) loadEvents,
+    required TResult Function(_SearchEvents value) searchEvents,
+    required TResult Function(_FilterByCategory value) filterByCategory,
+    required TResult Function(_ClearFilters value) clearFilters,
+    required TResult Function(_ToggleShowOnlyFavourites value)
+        toggleShowOnlyFavourites,
+  }) {
+    return toggleShowOnlyFavourites(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEvents value)? loadEvents,
+    TResult? Function(_SearchEvents value)? searchEvents,
+    TResult? Function(_FilterByCategory value)? filterByCategory,
+    TResult? Function(_ClearFilters value)? clearFilters,
+    TResult? Function(_ToggleShowOnlyFavourites value)?
+        toggleShowOnlyFavourites,
+  }) {
+    return toggleShowOnlyFavourites?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEvents value)? loadEvents,
+    TResult Function(_SearchEvents value)? searchEvents,
+    TResult Function(_FilterByCategory value)? filterByCategory,
+    TResult Function(_ClearFilters value)? clearFilters,
+    TResult Function(_ToggleShowOnlyFavourites value)? toggleShowOnlyFavourites,
+    required TResult orElse(),
+  }) {
+    if (toggleShowOnlyFavourites != null) {
+      return toggleShowOnlyFavourites(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ToggleShowOnlyFavourites implements EventsEvent {
+  const factory _ToggleShowOnlyFavourites() = _$ToggleShowOnlyFavouritesImpl;
+}
+
+/// @nodoc
 mixin _$EventsState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Event> events) loaded,
+    required TResult Function(List<Event> events, bool showOnlyFavourites)
+        loaded,
     required TResult Function(String message) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -644,7 +813,7 @@ mixin _$EventsState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Event> events)? loaded,
+    TResult? Function(List<Event> events, bool showOnlyFavourites)? loaded,
     TResult? Function(String message)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -652,7 +821,7 @@ mixin _$EventsState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Event> events)? loaded,
+    TResult Function(List<Event> events, bool showOnlyFavourites)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) =>
@@ -748,7 +917,8 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Event> events) loaded,
+    required TResult Function(List<Event> events, bool showOnlyFavourites)
+        loaded,
     required TResult Function(String message) error,
   }) {
     return initial();
@@ -759,7 +929,7 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Event> events)? loaded,
+    TResult? Function(List<Event> events, bool showOnlyFavourites)? loaded,
     TResult? Function(String message)? error,
   }) {
     return initial?.call();
@@ -770,7 +940,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Event> events)? loaded,
+    TResult Function(List<Event> events, bool showOnlyFavourites)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -865,7 +1035,8 @@ class _$LoadingImpl implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Event> events) loaded,
+    required TResult Function(List<Event> events, bool showOnlyFavourites)
+        loaded,
     required TResult Function(String message) error,
   }) {
     return loading();
@@ -876,7 +1047,7 @@ class _$LoadingImpl implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Event> events)? loaded,
+    TResult? Function(List<Event> events, bool showOnlyFavourites)? loaded,
     TResult? Function(String message)? error,
   }) {
     return loading?.call();
@@ -887,7 +1058,7 @@ class _$LoadingImpl implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Event> events)? loaded,
+    TResult Function(List<Event> events, bool showOnlyFavourites)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -945,7 +1116,7 @@ abstract class _$$LoadedImplCopyWith<$Res> {
           _$LoadedImpl value, $Res Function(_$LoadedImpl) then) =
       __$$LoadedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<Event> events});
+  $Res call({List<Event> events, bool showOnlyFavourites});
 }
 
 /// @nodoc
@@ -962,12 +1133,17 @@ class __$$LoadedImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? events = null,
+    Object? showOnlyFavourites = null,
   }) {
     return _then(_$LoadedImpl(
       null == events
           ? _value._events
           : events // ignore: cast_nullable_to_non_nullable
               as List<Event>,
+      showOnlyFavourites: null == showOnlyFavourites
+          ? _value.showOnlyFavourites
+          : showOnlyFavourites // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -975,7 +1151,9 @@ class __$$LoadedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$LoadedImpl implements _Loaded {
-  const _$LoadedImpl(final List<Event> events) : _events = events;
+  const _$LoadedImpl(final List<Event> events,
+      {this.showOnlyFavourites = false})
+      : _events = events;
 
   final List<Event> _events;
   @override
@@ -986,8 +1164,12 @@ class _$LoadedImpl implements _Loaded {
   }
 
   @override
+  @JsonKey()
+  final bool showOnlyFavourites;
+
+  @override
   String toString() {
-    return 'EventsState.loaded(events: $events)';
+    return 'EventsState.loaded(events: $events, showOnlyFavourites: $showOnlyFavourites)';
   }
 
   @override
@@ -995,12 +1177,14 @@ class _$LoadedImpl implements _Loaded {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LoadedImpl &&
-            const DeepCollectionEquality().equals(other._events, _events));
+            const DeepCollectionEquality().equals(other._events, _events) &&
+            (identical(other.showOnlyFavourites, showOnlyFavourites) ||
+                other.showOnlyFavourites == showOnlyFavourites));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_events));
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(_events), showOnlyFavourites);
 
   /// Create a copy of EventsState
   /// with the given fields replaced by the non-null parameter values.
@@ -1015,10 +1199,11 @@ class _$LoadedImpl implements _Loaded {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Event> events) loaded,
+    required TResult Function(List<Event> events, bool showOnlyFavourites)
+        loaded,
     required TResult Function(String message) error,
   }) {
-    return loaded(events);
+    return loaded(events, showOnlyFavourites);
   }
 
   @override
@@ -1026,10 +1211,10 @@ class _$LoadedImpl implements _Loaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Event> events)? loaded,
+    TResult? Function(List<Event> events, bool showOnlyFavourites)? loaded,
     TResult? Function(String message)? error,
   }) {
-    return loaded?.call(events);
+    return loaded?.call(events, showOnlyFavourites);
   }
 
   @override
@@ -1037,12 +1222,12 @@ class _$LoadedImpl implements _Loaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Event> events)? loaded,
+    TResult Function(List<Event> events, bool showOnlyFavourites)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded(events);
+      return loaded(events, showOnlyFavourites);
     }
     return orElse();
   }
@@ -1086,9 +1271,11 @@ class _$LoadedImpl implements _Loaded {
 }
 
 abstract class _Loaded implements EventsState {
-  const factory _Loaded(final List<Event> events) = _$LoadedImpl;
+  const factory _Loaded(final List<Event> events,
+      {final bool showOnlyFavourites}) = _$LoadedImpl;
 
   List<Event> get events;
+  bool get showOnlyFavourites;
 
   /// Create a copy of EventsState
   /// with the given fields replaced by the non-null parameter values.
@@ -1167,7 +1354,8 @@ class _$ErrorImpl implements _Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Event> events) loaded,
+    required TResult Function(List<Event> events, bool showOnlyFavourites)
+        loaded,
     required TResult Function(String message) error,
   }) {
     return error(message);
@@ -1178,7 +1366,7 @@ class _$ErrorImpl implements _Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Event> events)? loaded,
+    TResult? Function(List<Event> events, bool showOnlyFavourites)? loaded,
     TResult? Function(String message)? error,
   }) {
     return error?.call(message);
@@ -1189,7 +1377,7 @@ class _$ErrorImpl implements _Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Event> events)? loaded,
+    TResult Function(List<Event> events, bool showOnlyFavourites)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {

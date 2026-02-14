@@ -69,6 +69,7 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i286.GetEventsUseCase>(),
           gh<_i996.SearchEventsUseCase>(),
           gh<_i618.FilterEventsByCategoryUseCase>(),
+          gh<_i686.IFavouritesRepository>(),
         ));
     gh.factory<_i336.FavouritesCubit>(() => _i336.FavouritesCubit(
           gh<_i683.GetFavouritesUseCase>(),
