@@ -1,9 +1,12 @@
+import 'package:city_events_explorer/src/core/injection/injection_container.dart';
 import 'package:city_events_explorer/src/core/utils/app_colors.dart';
 import 'package:city_events_explorer/src/core/utils/app_spacing.dart';
 import 'package:city_events_explorer/src/features/events/domain/entities/event.dart';
 import 'package:city_events_explorer/src/features/events/presentation/widgets/favourite_button.dart';
 import 'package:city_events_explorer/src/features/events/presentation/widgets/map_preview.dart';
+import 'package:city_events_explorer/src/features/favourites/presentation/cubit/favourites_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 
 class EventDetailPage extends StatelessWidget {
@@ -16,7 +19,9 @@ class EventDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return BlocProvider(
+      create: (context) => getIt<FavouritesCubit>()..loadFavourites(),
+      child: Scaffold(
       backgroundColor: AppColors.background,
       body: CustomScrollView(
         slivers: [
@@ -40,6 +45,7 @@ class EventDetailPage extends StatelessWidget {
             ),
           ),
         ],
+      ),
       ),
     );
   }
@@ -72,10 +78,7 @@ class EventDetailPage extends StatelessWidget {
             color: AppColors.surface.withValues(alpha: 0.9),
             shape: BoxShape.circle,
           ),
-          child: FavouriteButton(
-            isFavourite: false,
-            onPressed: () {},
-          ),
+          child: FavouriteButton(eventId: event.id),
         ),
       ],
       flexibleSpace: FlexibleSpaceBar(
