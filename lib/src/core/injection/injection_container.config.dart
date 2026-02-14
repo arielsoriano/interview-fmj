@@ -14,6 +14,7 @@ import 'package:injectable/injectable.dart' as _i526;
 
 import '../../features/events/data/datasources/local_event_datasource.dart'
     as _i382;
+import '../../features/events/data/repositories/event_repository.dart' as _i270;
 import '../../features/events/domain/repositories/i_event_repository.dart'
     as _i84;
 import '../../features/events/domain/usecases/filter_events_by_category.dart'
@@ -34,6 +35,8 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.lazySingleton<_i382.LocalEventDatasource>(
         () => _i382.LocalEventDatasource());
+    gh.factory<_i84.IEventRepository>(
+        () => _i270.EventRepository(gh<_i382.LocalEventDatasource>()));
     gh.factory<_i618.FilterEventsByCategoryUseCase>(
         () => _i618.FilterEventsByCategoryUseCase(gh<_i84.IEventRepository>()));
     gh.factory<_i286.GetEventsUseCase>(
