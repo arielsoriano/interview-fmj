@@ -4,8 +4,9 @@ import 'package:city_events_explorer/src/core/routing/app_router.dart';
 import 'package:city_events_explorer/src/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
-void main() {
-  configureDependencies();
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await configureDependencies();
   runApp(const App());
 }
 

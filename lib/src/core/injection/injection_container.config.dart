@@ -31,6 +31,8 @@ import '../../features/favourites/domain/repositories/i_favourites_repository.da
 import '../../features/favourites/domain/usecases/get_favourites.dart' as _i683;
 import '../../features/favourites/domain/usecases/toggle_favourite.dart'
     as _i230;
+import '../../features/favourites/presentation/cubit/favourites_cubit.dart'
+    as _i336;
 
 extension GetItInjectableX on _i174.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -67,6 +69,10 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i286.GetEventsUseCase>(),
           gh<_i996.SearchEventsUseCase>(),
           gh<_i618.FilterEventsByCategoryUseCase>(),
+        ));
+    gh.factory<_i336.FavouritesCubit>(() => _i336.FavouritesCubit(
+          gh<_i683.GetFavouritesUseCase>(),
+          gh<_i230.ToggleFavouriteUseCase>(),
         ));
     return this;
   }
