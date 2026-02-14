@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:city_events_explorer/src/core/injection/injection_container.dart';
 import 'package:city_events_explorer/src/core/utils/app_colors.dart';
 import 'package:city_events_explorer/src/core/utils/app_spacing.dart';
@@ -9,7 +7,6 @@ import 'package:city_events_explorer/src/features/events/presentation/widgets/er
 import 'package:city_events_explorer/src/features/events/presentation/widgets/event_card.dart';
 import 'package:city_events_explorer/src/features/events/presentation/widgets/event_search_bar.dart';
 import 'package:city_events_explorer/src/features/events/presentation/widgets/filter_bottom_sheet.dart';
-import 'package:city_events_explorer/src/features/favourites/presentation/cubit/favourites_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -18,20 +15,9 @@ class EventsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (context) =>
-              getIt<EventsBloc>()..add(const EventsEvent.loadEvents()),
-        ),
-        BlocProvider(
-          create: (context) {
-            final cubit = getIt<FavouritesCubit>();
-            unawaited(cubit.loadFavourites());
-            return cubit;
-          },
-        ),
-      ],
+    return BlocProvider(
+      create: (context) =>
+          getIt<EventsBloc>()..add(const EventsEvent.loadEvents()),
       child: const EventsView(),
     );
   }

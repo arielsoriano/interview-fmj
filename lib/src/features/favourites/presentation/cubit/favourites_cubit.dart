@@ -14,7 +14,7 @@ class FavouritesState with _$FavouritesState {
   }) = _FavouritesState;
 }
 
-@injectable
+@lazySingleton
 class FavouritesCubit extends Cubit<FavouritesState> {
   FavouritesCubit(
     this._getFavouritesUseCase,

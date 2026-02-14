@@ -1,8 +1,12 @@
+import 'dart:async';
+
 import 'package:city_events_explorer/src/core/constants/app_constants.dart';
 import 'package:city_events_explorer/src/core/injection/injection_container.dart';
 import 'package:city_events_explorer/src/core/routing/app_router.dart';
 import 'package:city_events_explorer/src/core/utils/app_colors.dart';
+import 'package:city_events_explorer/src/features/favourites/presentation/cubit/favourites_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,7 +19,13 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
+    return BlocProvider(
+      create: (context) {
+        final cubit = getIt<FavouritesCubit>();
+        unawaited(cubit.loadFavourites());
+        return cubit;
+      },
+      child: MaterialApp.router(
       title: AppConstants.appName,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -27,7 +37,8 @@ class App extends StatelessWidget {
         scaffoldBackgroundColor: AppColors.background,
         useMaterial3: true,
       ),
-      routerConfig: AppRouter.router,
+        routerConfig: AppRouter.router,
+      ),
     );
   }
 }

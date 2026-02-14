@@ -1,5 +1,5 @@
-// dart format width=80
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// dart format width=80
 
 // **************************************************************************
 // InjectableConfigGenerator
@@ -51,27 +51,27 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.lazySingleton<_i382.LocalEventDatasource>(
         () => _i382.LocalEventDatasource());
-    gh.factory<_i686.IFavouritesRepository>(() =>
-        _i1071.FavouritesRepository(gh<_i693.LocalFavouritesDatasource>()));
     gh.factory<_i84.IEventRepository>(
         () => _i270.EventRepository(gh<_i382.LocalEventDatasource>()));
+    gh.factory<_i686.IFavouritesRepository>(() =>
+        _i1071.FavouritesRepository(gh<_i693.LocalFavouritesDatasource>()));
     gh.factory<_i618.FilterEventsByCategoryUseCase>(
         () => _i618.FilterEventsByCategoryUseCase(gh<_i84.IEventRepository>()));
     gh.factory<_i286.GetEventsUseCase>(
         () => _i286.GetEventsUseCase(gh<_i84.IEventRepository>()));
     gh.factory<_i996.SearchEventsUseCase>(
         () => _i996.SearchEventsUseCase(gh<_i84.IEventRepository>()));
-    gh.factory<_i683.GetFavouritesUseCase>(
-        () => _i683.GetFavouritesUseCase(gh<_i686.IFavouritesRepository>()));
-    gh.factory<_i230.ToggleFavouriteUseCase>(
-        () => _i230.ToggleFavouriteUseCase(gh<_i686.IFavouritesRepository>()));
     gh.factory<_i177.EventsBloc>(() => _i177.EventsBloc(
           gh<_i286.GetEventsUseCase>(),
           gh<_i996.SearchEventsUseCase>(),
           gh<_i618.FilterEventsByCategoryUseCase>(),
           gh<_i686.IFavouritesRepository>(),
         ));
-    gh.factory<_i336.FavouritesCubit>(() => _i336.FavouritesCubit(
+    gh.factory<_i683.GetFavouritesUseCase>(
+        () => _i683.GetFavouritesUseCase(gh<_i686.IFavouritesRepository>()));
+    gh.factory<_i230.ToggleFavouriteUseCase>(
+        () => _i230.ToggleFavouriteUseCase(gh<_i686.IFavouritesRepository>()));
+    gh.lazySingleton<_i336.FavouritesCubit>(() => _i336.FavouritesCubit(
           gh<_i683.GetFavouritesUseCase>(),
           gh<_i230.ToggleFavouriteUseCase>(),
         ));

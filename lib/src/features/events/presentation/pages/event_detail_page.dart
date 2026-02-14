@@ -1,14 +1,9 @@
-import 'dart:async';
-
-import 'package:city_events_explorer/src/core/injection/injection_container.dart';
 import 'package:city_events_explorer/src/core/utils/app_colors.dart';
 import 'package:city_events_explorer/src/core/utils/app_spacing.dart';
 import 'package:city_events_explorer/src/features/events/domain/entities/event.dart';
 import 'package:city_events_explorer/src/features/events/presentation/widgets/favourite_button.dart';
 import 'package:city_events_explorer/src/features/events/presentation/widgets/map_preview.dart';
-import 'package:city_events_explorer/src/features/favourites/presentation/cubit/favourites_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 
 class EventDetailPage extends StatelessWidget {
@@ -21,13 +16,7 @@ class EventDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) {
-        final cubit = getIt<FavouritesCubit>();
-        unawaited(cubit.loadFavourites());
-        return cubit;
-      },
-      child: Scaffold(
+    return Scaffold(
         backgroundColor: AppColors.background,
         body: CustomScrollView(
           slivers: [
@@ -52,8 +41,7 @@ class EventDetailPage extends StatelessWidget {
             ),
           ],
         ),
-      ),
-    );
+      );
   }
 
   Widget _buildAppBar(BuildContext context) {
