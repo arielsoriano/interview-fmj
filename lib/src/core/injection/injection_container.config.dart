@@ -22,6 +22,8 @@ import '../../features/events/domain/usecases/filter_events_by_category.dart'
 import '../../features/events/domain/usecases/get_events.dart' as _i286;
 import '../../features/events/domain/usecases/search_events.dart' as _i996;
 import '../../features/events/presentation/bloc/events_bloc.dart' as _i177;
+import '../../features/favourites/data/datasources/local_favourites_datasource.dart'
+    as _i693;
 import '../../features/favourites/domain/repositories/i_favourites_repository.dart'
     as _i686;
 import '../../features/favourites/domain/usecases/get_favourites.dart' as _i683;
@@ -30,14 +32,18 @@ import '../../features/favourites/domain/usecases/toggle_favourite.dart'
 
 extension GetItInjectableX on _i174.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
-  _i174.GetIt init({
+  Future<_i174.GetIt> init({
     String? environment,
     _i526.EnvironmentFilter? environmentFilter,
-  }) {
+  }) async {
     final gh = _i526.GetItHelper(
       this,
       environment,
       environmentFilter,
+    );
+    await gh.factoryAsync<_i693.LocalFavouritesDatasource>(
+      () => _i693.LocalFavouritesDatasource.create(),
+      preResolve: true,
     );
     gh.lazySingleton<_i382.LocalEventDatasource>(
         () => _i382.LocalEventDatasource());
