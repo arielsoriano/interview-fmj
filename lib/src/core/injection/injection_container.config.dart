@@ -24,6 +24,8 @@ import '../../features/events/domain/usecases/search_events.dart' as _i996;
 import '../../features/events/presentation/bloc/events_bloc.dart' as _i177;
 import '../../features/favourites/data/datasources/local_favourites_datasource.dart'
     as _i693;
+import '../../features/favourites/data/repositories/favourites_repository.dart'
+    as _i1071;
 import '../../features/favourites/domain/repositories/i_favourites_repository.dart'
     as _i686;
 import '../../features/favourites/domain/usecases/get_favourites.dart' as _i683;
@@ -47,6 +49,8 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.lazySingleton<_i382.LocalEventDatasource>(
         () => _i382.LocalEventDatasource());
+    gh.factory<_i686.IFavouritesRepository>(() =>
+        _i1071.FavouritesRepository(gh<_i693.LocalFavouritesDatasource>()));
     gh.factory<_i84.IEventRepository>(
         () => _i270.EventRepository(gh<_i382.LocalEventDatasource>()));
     gh.factory<_i618.FilterEventsByCategoryUseCase>(
