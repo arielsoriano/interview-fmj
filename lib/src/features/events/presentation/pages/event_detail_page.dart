@@ -1,6 +1,7 @@
 import 'package:city_events_explorer/src/core/utils/app_colors.dart';
 import 'package:city_events_explorer/src/core/utils/app_spacing.dart';
 import 'package:city_events_explorer/src/features/events/domain/entities/event.dart';
+import 'package:city_events_explorer/src/features/events/presentation/widgets/favourite_button.dart';
 import 'package:city_events_explorer/src/features/events/presentation/widgets/map_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -71,13 +72,9 @@ class EventDetailPage extends StatelessWidget {
             color: AppColors.surface.withValues(alpha: 0.9),
             shape: BoxShape.circle,
           ),
-          child: IconButton(
-            icon: const Icon(
-              Icons.favorite_border,
-              color: AppColors.favouriteInactive,
-            ),
+          child: FavouriteButton(
+            isFavourite: false,
             onPressed: () {},
-            tooltip: 'Add to favourites',
           ),
         ),
       ],
