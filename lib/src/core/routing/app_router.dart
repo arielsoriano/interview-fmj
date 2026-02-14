@@ -1,3 +1,4 @@
+import 'package:city_events_explorer/src/features/events/presentation/pages/events_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -28,19 +29,6 @@ final class AppRouter {
     ],
     errorBuilder: (context, state) => const ErrorPage(),
   );
-}
-
-class EventsPage extends StatelessWidget {
-  const EventsPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text('Events List - Coming Soon'),
-      ),
-    );
-  }
 }
 
 class EventDetailPage extends StatelessWidget {
