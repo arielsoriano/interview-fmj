@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 
-class EventCard extends StatelessWidget {
+class EventCard extends StatefulWidget {
   const EventCard({
     required this.event,
     super.key,
@@ -16,28 +16,66 @@ class EventCard extends StatelessWidget {
   final Event event;
 
   @override
+  State<EventCard> createState() => _EventCardState();
+}
+
+class _EventCardState extends State<EventCard>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _animationController;
+  late Animation<double> _scaleAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    _animationController = AnimationController(
+      duration: const Duration(milliseconds: 150),
+      vsync: this,
+    );
+    _scaleAnimation = Tween<double>(begin: 1, end: 0.98).animate(
+      CurvedAnimation(
+        parent: _animationController,
+        curve: Curves.easeInOut,
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Card(
-      margin: const EdgeInsets.symmetric(
-        horizontal: AppSpacing.screenPaddingHorizontal,
-        vertical: AppSpacing.xs,
-      ),
-      elevation: AppSpacing.cardElevation,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(AppSpacing.cardRadius),
-      ),
-      clipBehavior: Clip.antiAlias,
-      child: InkWell(
-        onTap: () => context.push(
-          AppRoutes.eventDetailPath(event.id),
-          extra: event,
+    return ScaleTransition(
+      scale: _scaleAnimation,
+      child: Card(
+        margin: const EdgeInsets.symmetric(
+          horizontal: AppSpacing.screenPaddingHorizontal,
+          vertical: AppSpacing.xs,
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            _buildImage(),
-            _buildContent(context),
-          ],
+        elevation: AppSpacing.cardElevation,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(AppSpacing.cardRadius),
+        ),
+        clipBehavior: Clip.antiAlias,
+        child: InkWell(
+          onTap: () => context.push(
+            AppRoutes.eventDetailPath(widget.event.id),
+            extra: widget.event,
+          ),
+          onTapDown: (_) => _animationController.forward(),
+          onTapUp: (_) => _animationController.reverse(),
+          onTapCancel: () => _animationController.reverse(),
+          splashColor: AppColors.primary.withValues(alpha: 0.1),
+          highlightColor: AppColors.primary.withValues(alpha: 0.05),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _buildImage(),
+              _buildContent(context),
+            ],
+          ),
         ),
       ),
     );
@@ -47,11 +85,11 @@ class EventCard extends StatelessWidget {
     return Stack(
       children: [
         Hero(
-          tag: 'event-image-${event.id}',
+          tag: 'event-image-${widget.event.id}',
           child: AspectRatio(
             aspectRatio: 16 / 9,
             child: Image.network(
-              event.imageUrl,
+              widget.event.imageUrl,
               fit: BoxFit.cover,
               errorBuilder: (context, error, stackTrace) {
                 return const ColoredBox(
@@ -101,13 +139,20 @@ class EventCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.surface.withValues(alpha: 0.9),
         shape: BoxShape.circle,
+        boxShadow: [
+          BoxShadow(
+            color: AppColors.shadow.withValues(alpha: 0.3),
+            blurRadius: 4,
+            offset: const Offset(0, 2),
+          ),
+        ],
       ),
-      child: FavouriteButton(eventId: event.id),
+      child: FavouriteButton(eventId: widget.event.id),
     );
   }
 
   Widget _buildCategoryChip() {
-    final categoryColor = AppColors.getCategoryColor(event.category);
+    final categoryColor = AppColors.getCategoryColor(widget.event.category);
     return Container(
       padding: const EdgeInsets.symmetric(
         horizontal: AppSpacing.sm,
@@ -116,9 +161,16 @@ class EventCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: categoryColor,
         borderRadius: BorderRadius.circular(AppSpacing.cardRadius),
+        boxShadow: [
+          BoxShadow(
+            color: AppColors.shadow.withValues(alpha: 0.3),
+            blurRadius: 4,
+            offset: const Offset(0, 2),
+          ),
+        ],
       ),
       child: Text(
-        event.category,
+        widget.event.category,
         style: const TextStyle(
           color: AppColors.textOnPrimary,
           fontSize: 12,
@@ -135,7 +187,7 @@ class EventCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            event.title,
+            widget.event.title,
             style: Theme.of(context).textTheme.titleLarge?.copyWith(
                   fontWeight: FontWeight.bold,
                   color: AppColors.textPrimary,
@@ -146,17 +198,17 @@ class EventCard extends StatelessWidget {
           const SizedBox(height: AppSpacing.xs),
           _buildInfoRow(
             icon: Icons.calendar_today_outlined,
-            text: _formatDate(event.startDate),
+            text: _formatDate(widget.event.startDate),
           ),
           const SizedBox(height: AppSpacing.xxs),
           _buildInfoRow(
             icon: Icons.access_time_outlined,
-            text: _formatTime(event.startDate, event.endDate),
+            text: _formatTime(widget.event.startDate, widget.event.endDate),
           ),
           const SizedBox(height: AppSpacing.xxs),
           _buildInfoRow(
             icon: Icons.location_on_outlined,
-            text: event.location.name,
+            text: widget.event.location.name,
           ),
         ],
       ),

@@ -15,11 +15,7 @@ class FilterBottomSheet extends StatefulWidget {
     showModalBottomSheet<void>(
       context: context,
       isScrollControlled: true,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(
-          top: Radius.circular(AppSpacing.md),
-        ),
-      ),
+      backgroundColor: Colors.transparent,
       builder: (_) => BlocProvider.value(
         value: context.read<EventsBloc>(),
         child: const FilterBottomSheet(),
@@ -28,7 +24,8 @@ class FilterBottomSheet extends StatefulWidget {
   }
 }
 
-class _FilterBottomSheetState extends State<FilterBottomSheet> {
+class _FilterBottomSheetState extends State<FilterBottomSheet>
+    with SingleTickerProviderStateMixin {
   static const List<String> _categories = [
     'Music',
     'Technology',
@@ -39,27 +36,74 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
   ];
 
   String? _selectedCategory;
+  late AnimationController _animationController;
+  late Animation<double> _fadeAnimation;
+  late Animation<Offset> _slideAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    _animationController = AnimationController(
+      duration: const Duration(milliseconds: 300),
+      vsync: this,
+    );
+    _fadeAnimation = Tween<double>(begin: 0, end: 1).animate(
+      CurvedAnimation(
+        parent: _animationController,
+        curve: Curves.easeOut,
+      ),
+    );
+    _slideAnimation = Tween<Offset>(
+      begin: const Offset(0, 0.1),
+      end: Offset.zero,
+    ).animate(
+      CurvedAnimation(
+        parent: _animationController,
+        curve: Curves.easeOut,
+      ),
+    );
+    _animationController.forward();
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.only(
-        left: AppSpacing.screenPaddingHorizontal,
-        right: AppSpacing.screenPaddingHorizontal,
-        top: AppSpacing.lg,
-        bottom: MediaQuery.of(context).viewInsets.bottom +
-            AppSpacing.screenPaddingVertical,
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          _buildHeader(context),
-          const SizedBox(height: AppSpacing.lg),
-          _buildCategoryChips(),
-          const SizedBox(height: AppSpacing.lg),
-          _buildActionButtons(context),
-        ],
+    return FadeTransition(
+      opacity: _fadeAnimation,
+      child: SlideTransition(
+        position: _slideAnimation,
+        child: Container(
+          decoration: const BoxDecoration(
+            color: AppColors.surface,
+            borderRadius: BorderRadius.vertical(
+              top: Radius.circular(AppSpacing.md),
+            ),
+          ),
+          padding: EdgeInsets.only(
+            left: AppSpacing.screenPaddingHorizontal,
+            right: AppSpacing.screenPaddingHorizontal,
+            top: AppSpacing.lg,
+            bottom: MediaQuery.of(context).viewInsets.bottom +
+                AppSpacing.screenPaddingVertical +
+                AppSpacing.md,
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _buildHeader(context),
+              const SizedBox(height: AppSpacing.lg),
+              _buildCategoryChips(),
+              const SizedBox(height: AppSpacing.lg),
+              _buildActionButtons(context),
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -92,26 +136,57 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
         final isSelected = _selectedCategory == category;
         final categoryColor = AppColors.getCategoryColor(category);
 
-        return FilterChip(
-          label: Text(category),
-          selected: isSelected,
-          onSelected: (selected) {
-            setState(() {
-              _selectedCategory = selected ? category : null;
-            });
-          },
-          selectedColor: categoryColor.withValues(alpha: 0.2),
-          checkmarkColor: categoryColor,
-          labelStyle: TextStyle(
-            color: isSelected ? categoryColor : AppColors.textPrimary,
-            fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
-          ),
-          side: BorderSide(
-            color: isSelected ? categoryColor : AppColors.border,
-            width: isSelected ? 2 : 1,
-          ),
-          shape: RoundedRectangleBorder(
+        return Material(
+          color: Colors.transparent,
+          child: InkWell(
+            onTap: () {
+              setState(() {
+                _selectedCategory = isSelected ? null : category;
+              });
+            },
             borderRadius: BorderRadius.circular(AppSpacing.cardRadius),
+            splashColor: categoryColor.withValues(alpha: 0.2),
+            highlightColor: categoryColor.withValues(alpha: 0.1),
+            child: AnimatedContainer(
+              duration: const Duration(milliseconds: 200),
+              curve: Curves.easeInOut,
+              padding: const EdgeInsets.symmetric(
+                horizontal: AppSpacing.md,
+                vertical: AppSpacing.xs,
+              ),
+              decoration: BoxDecoration(
+                color: isSelected
+                    ? categoryColor.withValues(alpha: 0.15)
+                    : Colors.transparent,
+                borderRadius: BorderRadius.circular(AppSpacing.cardRadius),
+                border: Border.all(
+                  color: isSelected ? categoryColor : AppColors.border,
+                  width: isSelected ? 2 : 1,
+                ),
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  if (isSelected)
+                    Padding(
+                      padding: const EdgeInsets.only(right: AppSpacing.xxs),
+                      child: Icon(
+                        Icons.check,
+                        size: 16,
+                        color: categoryColor,
+                      ),
+                    ),
+                  Text(
+                    category,
+                    style: TextStyle(
+                      color: isSelected ? categoryColor : AppColors.textPrimary,
+                      fontWeight:
+                          isSelected ? FontWeight.w600 : FontWeight.normal,
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ),
         );
       }).toList(),
@@ -129,19 +204,25 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
             },
             style: OutlinedButton.styleFrom(
               padding: const EdgeInsets.symmetric(
-                vertical: AppSpacing.sm,
+                vertical: AppSpacing.md,
               ),
-              side: const BorderSide(color: AppColors.primary),
+              side: const BorderSide(color: AppColors.primary, width: 2),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(AppSpacing.xs),
               ),
+              splashFactory: InkRipple.splashFactory,
             ),
-            child: const Text('Clear'),
+            child: const Text(
+              'Clear',
+              style: TextStyle(
+                fontWeight: FontWeight.w600,
+              ),
+            ),
           ),
         ),
         const SizedBox(width: AppSpacing.md),
         Expanded(
-          child: ElevatedButton(
+          child: FilledButton(
             onPressed: _selectedCategory != null
                 ? () {
                     context.read<EventsBloc>().add(
@@ -150,9 +231,9 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                     Navigator.of(context).pop();
                   }
                 : null,
-            style: ElevatedButton.styleFrom(
+            style: FilledButton.styleFrom(
               padding: const EdgeInsets.symmetric(
-                vertical: AppSpacing.sm,
+                vertical: AppSpacing.md,
               ),
               backgroundColor: AppColors.primary,
               foregroundColor: AppColors.textOnPrimary,
@@ -160,8 +241,14 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(AppSpacing.xs),
               ),
+              elevation: 0,
             ),
-            child: const Text('Apply'),
+            child: const Text(
+              'Apply',
+              style: TextStyle(
+                fontWeight: FontWeight.w600,
+              ),
+            ),
           ),
         ),
       ],

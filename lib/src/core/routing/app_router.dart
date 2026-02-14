@@ -18,14 +18,48 @@ final class AppRouter {
       GoRoute(
         path: AppRoutes.events,
         name: 'events',
-        builder: (context, state) => const EventsPage(),
+        pageBuilder: (context, state) => CustomTransitionPage(
+          key: state.pageKey,
+          child: const EventsPage(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return FadeTransition(
+              opacity: animation,
+              child: child,
+            );
+          },
+        ),
       ),
       GoRoute(
         path: AppRoutes.eventDetail,
         name: 'event-detail',
-        builder: (context, state) {
+        pageBuilder: (context, state) {
           final event = state.extra! as Event;
-          return EventDetailPage(event: event);
+          return CustomTransitionPage(
+            key: state.pageKey,
+            child: EventDetailPage(event: event),
+            transitionsBuilder: (
+              context,
+              animation,
+              secondaryAnimation,
+              child,
+            ) {
+              const begin = Offset(1, 0);
+              const end = Offset.zero;
+              const curve = Curves.easeInOutCubic;
+
+              final tween = Tween(begin: begin, end: end).chain(
+                CurveTween(curve: curve),
+              );
+
+              return SlideTransition(
+                position: animation.drive(tween),
+                child: FadeTransition(
+                  opacity: animation,
+                  child: child,
+                ),
+              );
+            },
+          );
         },
       ),
     ],

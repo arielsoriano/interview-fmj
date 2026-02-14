@@ -1,5 +1,6 @@
 import 'package:city_events_explorer/src/core/injection/injection_container.dart';
 import 'package:city_events_explorer/src/core/utils/app_colors.dart';
+import 'package:city_events_explorer/src/core/utils/app_spacing.dart';
 import 'package:city_events_explorer/src/features/events/presentation/bloc/events_bloc.dart';
 import 'package:city_events_explorer/src/features/events/presentation/widgets/empty_state_widget.dart';
 import 'package:city_events_explorer/src/features/events/presentation/widgets/error_state_widget.dart';
@@ -57,36 +58,77 @@ class EventsView extends StatelessWidget {
             builder: (context, state) {
               return state.maybeWhen(
                 loaded: (events, showOnlyFavourites) {
-                  return Container(
+                  return AnimatedContainer(
+                    duration: const Duration(milliseconds: 200),
                     padding: const EdgeInsets.symmetric(
-                      horizontal: 16,
-                      vertical: 8,
+                      horizontal: AppSpacing.screenPaddingHorizontal,
+                      vertical: AppSpacing.xs,
                     ),
                     child: Row(
                       children: [
-                        FilterChip(
-                          label: const Text('Favourites'),
-                          selected: showOnlyFavourites,
-                          onSelected: (_) {
-                            context.read<EventsBloc>().add(
-                                  const EventsEvent.toggleShowOnlyFavourites(),
-                                );
-                          },
-                          avatar: Icon(
-                            showOnlyFavourites
-                                ? Icons.favorite
-                                : Icons.favorite_border,
-                            size: 18,
-                            color: showOnlyFavourites
-                                ? AppColors.textOnPrimary
-                                : AppColors.favourite,
-                          ),
-                          selectedColor: AppColors.favourite,
-                          showCheckmark: false,
-                          labelStyle: TextStyle(
-                            color: showOnlyFavourites
-                                ? AppColors.textOnPrimary
-                                : AppColors.textPrimary,
+                        Material(
+                          color: Colors.transparent,
+                          child: InkWell(
+                            onTap: () {
+                              context.read<EventsBloc>().add(
+                                    const EventsEvent
+                                        .toggleShowOnlyFavourites(),
+                                  );
+                            },
+                            borderRadius:
+                                BorderRadius.circular(AppSpacing.cardRadius),
+                            splashColor:
+                                AppColors.favourite.withValues(alpha: 0.2),
+                            highlightColor:
+                                AppColors.favourite.withValues(alpha: 0.1),
+                            child: AnimatedContainer(
+                              duration: const Duration(milliseconds: 200),
+                              curve: Curves.easeInOut,
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: AppSpacing.md,
+                                vertical: AppSpacing.xs,
+                              ),
+                              decoration: BoxDecoration(
+                                color: showOnlyFavourites
+                                    ? AppColors.favourite
+                                    : Colors.transparent,
+                                borderRadius: BorderRadius.circular(
+                                  AppSpacing.cardRadius,
+                                ),
+                                border: Border.all(
+                                  color: showOnlyFavourites
+                                      ? AppColors.favourite
+                                      : AppColors.border,
+                                  width: showOnlyFavourites ? 2 : 1,
+                                ),
+                              ),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Icon(
+                                    showOnlyFavourites
+                                        ? Icons.favorite
+                                        : Icons.favorite_border,
+                                    size: 18,
+                                    color: showOnlyFavourites
+                                        ? AppColors.textOnPrimary
+                                        : AppColors.favourite,
+                                  ),
+                                  const SizedBox(width: AppSpacing.xxs),
+                                  Text(
+                                    'Favourites',
+                                    style: TextStyle(
+                                      color: showOnlyFavourites
+                                          ? AppColors.textOnPrimary
+                                          : AppColors.textPrimary,
+                                      fontWeight: showOnlyFavourites
+                                          ? FontWeight.w600
+                                          : FontWeight.normal,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
                           ),
                         ),
                       ],
