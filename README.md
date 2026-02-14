@@ -19,19 +19,19 @@ This application allows users to:
 
 | Technology | Purpose | Version |
 |------------|---------|---------|
-| **Flutter** | Cross-platform framework | ≥3.5.0 |
-| **Dart** | Programming language | ≥3.5.0 |
-| **flutter_bloc** | State management | ^8.1.0 |
-| **get_it** | Service locator for DI | ^7.6.0 |
-| **injectable** | DI code generation | ^2.3.0 |
-| **freezed** | Immutable models | ^2.4.0 |
-| **json_serializable** | JSON serialization | ^6.7.0 |
-| **go_router** | Declarative routing | ^13.0.0 |
-| **shared_preferences** | Local persistence | ^2.2.0 |
-| **flutter_map** | Map display | ^6.1.0 |
-| **latlong2** | Coordinates handling | ^0.9.0 |
-| **mocktail** | Testing mocks | ^1.0.0 |
-| **very_good_analysis** | Linting rules | ^5.1.0 |
+| **Flutter** | Cross-platform framework | 3.5.0 |
+| **Dart** | Programming language | 3.5.0 |
+| **flutter_bloc** | State management | 8.1.6 |
+| **get_it** | Service locator for DI | 8.3.0 |
+| **injectable** | DI code generation | 2.7.1+4 |
+| **freezed** | Immutable models | 2.5.8 |
+| **json_serializable** | JSON serialization | 6.9.5 |
+| **go_router** | Declarative routing | 14.8.1 |
+| **shared_preferences** | Local persistence | 2.5.4 |
+| **flutter_map** | Map display | 7.0.2 |
+| **latlong2** | Coordinates handling | 0.9.1 |
+| **mocktail** | Testing mocks | 1.0.4 |
+| **very_good_analysis** | Linting rules | 6.0.0 |
 
 ## 🏗️ Architecture
 
