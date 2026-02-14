@@ -1,6 +1,11 @@
+import 'package:city_events_explorer/src/core/constants/app_constants.dart';
+import 'package:city_events_explorer/src/core/injection/injection_container.dart';
+import 'package:city_events_explorer/src/core/routing/app_router.dart';
+import 'package:city_events_explorer/src/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
 void main() {
+  configureDependencies();
   runApp(const App());
 }
 
@@ -9,17 +14,19 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'City Events Explorer',
+    return MaterialApp.router(
+      title: AppConstants.appName,
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: AppColors.primary,
+          primary: AppColors.primary,
+          secondary: AppColors.secondary,
+        ),
+        scaffoldBackgroundColor: AppColors.background,
         useMaterial3: true,
       ),
-      home: const Scaffold(
-        body: Center(
-          child: Text('City Events Explorer'),
-        ),
-      ),
+      routerConfig: AppRouter.router,
     );
   }
 }
