@@ -2,7 +2,7 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     
     <application
-        android:label="city_events_explorer"
+        android:label="City Events"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

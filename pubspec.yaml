@@ -27,6 +27,8 @@ dependencies:
 dev_dependencies:
   bloc_test: ^10.0.0
   build_runner: ^2.4.13
+  flutter_launcher_icons: ^0.14.1
+  flutter_native_splash: ^2.4.3
   flutter_test:
     sdk: flutter
   freezed: ^3.2.5
@@ -40,3 +42,19 @@ flutter:
   
   assets:
     - assets/data/
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/launcher/icon.png"
+  adaptive_icon_background: "#2196F3"
+  adaptive_icon_foreground: "assets/launcher/icon_foreground.png"
+  remove_alpha_ios: true
+
+flutter_native_splash:
+  color: "#2196F3"
+  image: "assets/launcher/splash.png"
+  android_12:
+    color: "#2196F3"
+    image: "assets/launcher/splash.png"
+  web: false
