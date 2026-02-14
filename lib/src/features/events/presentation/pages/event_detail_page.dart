@@ -1,6 +1,7 @@
 import 'package:city_events_explorer/src/core/utils/app_colors.dart';
 import 'package:city_events_explorer/src/core/utils/app_spacing.dart';
 import 'package:city_events_explorer/src/features/events/domain/entities/event.dart';
+import 'package:city_events_explorer/src/features/events/presentation/widgets/map_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -274,34 +275,7 @@ class EventDetailPage extends StatelessWidget {
                 ),
           ),
           const SizedBox(height: AppSpacing.sm),
-          Container(
-            height: 200,
-            decoration: BoxDecoration(
-              color: AppColors.surfaceVariant,
-              borderRadius: BorderRadius.circular(AppSpacing.cardRadius),
-              border: Border.all(color: AppColors.border),
-            ),
-            child: const Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.map_outlined,
-                    size: 48,
-                    color: AppColors.textTertiary,
-                  ),
-                  SizedBox(height: AppSpacing.xs),
-                  Text(
-                    'Map preview coming soon',
-                    style: TextStyle(
-                      color: AppColors.textSecondary,
-                      fontSize: 14,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
+          MapPreview(location: event.location),
         ],
       ),
     );
