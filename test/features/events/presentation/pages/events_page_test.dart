@@ -27,8 +27,7 @@ void main() {
     when(() => mockFavouritesCubit.state).thenReturn(
       const FavouritesState(),
     );
-    when(() => mockFavouritesCubit.loadFavourites())
-        .thenAnswer((_) async {});
+    when(() => mockFavouritesCubit.loadFavourites()).thenAnswer((_) async {});
   });
 
   Widget createWidgetUnderTest() {

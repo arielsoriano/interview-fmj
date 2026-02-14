@@ -25,15 +25,25 @@ class FavouritesCubit extends Cubit<FavouritesState> {
   final ToggleFavouriteUseCase _toggleFavouriteUseCase;
 
   Future<void> loadFavourites() async {
-    emit(state.copyWith(isLoading: true,));
+    emit(
+      state.copyWith(
+        isLoading: true,
+      ),
+    );
     try {
       final ids = await _getFavouritesUseCase();
-      emit(state.copyWith(
-        favouriteIds: ids.toSet(),
-        isLoading: false,
-      ),);
+      emit(
+        state.copyWith(
+          favouriteIds: ids.toSet(),
+          isLoading: false,
+        ),
+      );
     } catch (e) {
-      emit(state.copyWith(isLoading: false,));
+      emit(
+        state.copyWith(
+          isLoading: false,
+        ),
+      );
     }
   }
 

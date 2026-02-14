@@ -33,8 +33,7 @@ class EventRepository implements IEventRepository {
     final events = await getEvents();
     return events
         .where(
-          (event) =>
-              event.category.toLowerCase() == category.toLowerCase(),
+          (event) => event.category.toLowerCase() == category.toLowerCase(),
         )
         .toList();
   }

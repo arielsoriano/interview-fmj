@@ -22,30 +22,30 @@ class EventDetailPage extends StatelessWidget {
     return BlocProvider(
       create: (context) => getIt<FavouritesCubit>()..loadFavourites(),
       child: Scaffold(
-      backgroundColor: AppColors.background,
-      body: CustomScrollView(
-        slivers: [
-          _buildAppBar(context),
-          SliverToBoxAdapter(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _buildHeaderSection(context),
-                const Divider(height: 1),
-                _buildInfoSection(context),
-                const Divider(height: 1),
-                _buildDescriptionSection(context),
-                const Divider(height: 1),
-                _buildMapSection(context),
-                SizedBox(
-                  height: MediaQuery.of(context).padding.bottom +
-                      AppSpacing.lg,
-                ),
-              ],
+        backgroundColor: AppColors.background,
+        body: CustomScrollView(
+          slivers: [
+            _buildAppBar(context),
+            SliverToBoxAdapter(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _buildHeaderSection(context),
+                  const Divider(height: 1),
+                  _buildInfoSection(context),
+                  const Divider(height: 1),
+                  _buildDescriptionSection(context),
+                  const Divider(height: 1),
+                  _buildMapSection(context),
+                  SizedBox(
+                    height:
+                        MediaQuery.of(context).padding.bottom + AppSpacing.lg,
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
-      ),
+          ],
+        ),
       ),
     );
   }
@@ -121,7 +121,7 @@ class EventDetailPage extends StatelessWidget {
 
   Widget _buildHeaderSection(BuildContext context) {
     final categoryColor = AppColors.getCategoryColor(event.category);
-    
+
     return Padding(
       padding: const EdgeInsets.all(AppSpacing.md),
       child: Column(

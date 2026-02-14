@@ -53,7 +53,7 @@ class _FavouriteButtonState extends State<FavouriteButton>
     return BlocBuilder<FavouritesCubit, FavouritesState>(
       builder: (context, state) {
         final isFavourite = state.favouriteIds.contains(widget.eventId);
-        
+
         return ScaleTransition(
           scale: _scaleAnimation,
           child: IconButton(
@@ -64,9 +64,8 @@ class _FavouriteButtonState extends State<FavouriteButton>
                   : AppColors.favouriteInactive,
             ),
             onPressed: _handleToggle,
-            tooltip: isFavourite
-                ? 'Remove from favourites'
-                : 'Add to favourites',
+            tooltip:
+                isFavourite ? 'Remove from favourites' : 'Add to favourites',
           ),
         );
       },

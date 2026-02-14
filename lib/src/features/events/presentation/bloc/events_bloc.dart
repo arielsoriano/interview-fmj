@@ -77,10 +77,12 @@ class EventsBloc extends Bloc<EventsEvent, EventsState> {
       _allEvents = await _searchEventsUseCase(event.query);
       _showOnlyFavourites = false;
       final filteredEvents = await _applyFavouritesFilter(_allEvents);
-      emit(EventsState.loaded(
-        filteredEvents,
-        showOnlyFavourites: _showOnlyFavourites,
-      ),);
+      emit(
+        EventsState.loaded(
+          filteredEvents,
+          showOnlyFavourites: _showOnlyFavourites,
+        ),
+      );
     } catch (e) {
       emit(EventsState.error(e.toString()));
     }
@@ -95,10 +97,12 @@ class EventsBloc extends Bloc<EventsEvent, EventsState> {
       _allEvents = await _filterEventsByCategoryUseCase(event.category);
       _showOnlyFavourites = false;
       final filteredEvents = await _applyFavouritesFilter(_allEvents);
-      emit(EventsState.loaded(
-        filteredEvents,
-        showOnlyFavourites: _showOnlyFavourites,
-      ),);
+      emit(
+        EventsState.loaded(
+          filteredEvents,
+          showOnlyFavourites: _showOnlyFavourites,
+        ),
+      );
     } catch (e) {
       emit(EventsState.error(e.toString()));
     }
@@ -124,10 +128,12 @@ class EventsBloc extends Bloc<EventsEvent, EventsState> {
   ) async {
     _showOnlyFavourites = !_showOnlyFavourites;
     final filteredEvents = await _applyFavouritesFilter(_allEvents);
-    emit(EventsState.loaded(
-      filteredEvents,
-      showOnlyFavourites: _showOnlyFavourites,
-    ),);
+    emit(
+      EventsState.loaded(
+        filteredEvents,
+        showOnlyFavourites: _showOnlyFavourites,
+      ),
+    );
   }
 
   Future<List<Event>> _applyFavouritesFilter(List<Event> events) async {
