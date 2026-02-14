@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 abstract class AppColors {
-  static const Color primary = Color(0xFF6366F1);
-  static const Color primaryDark = Color(0xFF4F46E5);
-  static const Color primaryLight = Color(0xFF818CF8);
+  static const Color primary = Color(0xFF2196F3);
+  static const Color primaryDark = Color(0xFF1976D2);
+  static const Color primaryLight = Color(0xFF64B5F6);
 
-  static const Color secondary = Color(0xFF8B5CF6);
-  static const Color secondaryDark = Color(0xFF7C3AED);
-  static const Color secondaryLight = Color(0xFFA78BFA);
+  static const Color secondary = Color(0xFF03A9F4);
+  static const Color secondaryDark = Color(0xFF0288D1);
+  static const Color secondaryLight = Color(0xFF4FC3F7);
 
   static const Color background = Color(0xFFFAFAFA);
   static const Color surface = Color(0xFFFFFFFF);
@@ -34,7 +34,7 @@ abstract class AppColors {
   static const Color categoryFood = Color(0xFFF59E0B);
   static const Color categoryArt = Color(0xFF8B5CF6);
   static const Color categorySports = Color(0xFF3B82F6);
-  static const Color categoryTechnology = Color(0xFF6366F1);
+  static const Color categoryTechnology = Color(0xFF2196F3);
   static const Color categoryDefault = Color(0xFF6B7280);
 
   static const Color shimmerBase = Color(0xFFE5E7EB);
