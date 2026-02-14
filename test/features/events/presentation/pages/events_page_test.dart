@@ -141,10 +141,10 @@ void main() {
         await tester.pumpWidget(createWidgetUnderTest());
         await tester.pumpAndSettle();
 
-        expect(find.text('Error loading events'), findsOneWidget);
+        expect(find.text('Unable to Load Events'), findsOneWidget);
         expect(find.text(errorMessage), findsOneWidget);
         expect(find.byIcon(Icons.error_outline), findsOneWidget);
-        expect(find.widgetWithText(ElevatedButton, 'Retry'), findsOneWidget);
+        expect(find.text('Try Again'), findsOneWidget);
       },
     );
 
@@ -161,7 +161,7 @@ void main() {
         await tester.pumpWidget(createWidgetUnderTest());
         await tester.pumpAndSettle();
 
-        expect(find.text('No events found'), findsOneWidget);
+        expect(find.text('No Events Found'), findsOneWidget);
         expect(
           find.text('Try adjusting your search or filters'),
           findsOneWidget,
