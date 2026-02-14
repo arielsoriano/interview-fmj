@@ -1,3 +1,5 @@
+import 'package:city_events_explorer/src/features/events/domain/entities/event.dart';
+import 'package:city_events_explorer/src/features/events/presentation/pages/event_detail_page.dart';
 import 'package:city_events_explorer/src/features/events/presentation/pages/events_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -22,28 +24,13 @@ final class AppRouter {
         path: AppRoutes.eventDetail,
         name: 'event-detail',
         builder: (context, state) {
-          final eventId = state.pathParameters['id']!;
-          return EventDetailPage(eventId: eventId);
+          final event = state.extra! as Event;
+          return EventDetailPage(event: event);
         },
       ),
     ],
     errorBuilder: (context, state) => const ErrorPage(),
   );
-}
-
-class EventDetailPage extends StatelessWidget {
-  const EventDetailPage({required this.eventId, super.key});
-
-  final String eventId;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Text('Event Detail: $eventId - Coming Soon'),
-      ),
-    );
-  }
 }
 
 class ErrorPage extends StatelessWidget {

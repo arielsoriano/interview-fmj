@@ -27,7 +27,10 @@ class EventCard extends StatelessWidget {
       ),
       clipBehavior: Clip.antiAlias,
       child: InkWell(
-        onTap: () => context.push(AppRoutes.eventDetailPath(event.id)),
+        onTap: () => context.push(
+          AppRoutes.eventDetailPath(event.id),
+          extra: event,
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
