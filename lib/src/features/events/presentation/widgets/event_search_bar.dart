@@ -15,6 +15,7 @@ class EventSearchBar extends StatefulWidget {
 
 class _EventSearchBarState extends State<EventSearchBar> {
   final TextEditingController _controller = TextEditingController();
+  final FocusNode _focusNode = FocusNode();
   Timer? _debounceTimer;
 
   static const Duration _debounceDuration = Duration(milliseconds: 300);
@@ -30,6 +31,7 @@ class _EventSearchBarState extends State<EventSearchBar> {
   @override
   void dispose() {
     _debounceTimer?.cancel();
+    _focusNode.dispose();
     _controller.dispose();
     super.dispose();
   }
@@ -69,7 +71,9 @@ class _EventSearchBarState extends State<EventSearchBar> {
       ),
       child: TextField(
         controller: _controller,
+        focusNode: _focusNode,
         onChanged: _onSearchChanged,
+        onTapOutside: (event) => _focusNode.unfocus(),
         decoration: InputDecoration(
           hintText: 'Search events...',
           hintStyle: const TextStyle(
